@@ -3,31 +3,61 @@ using System.Collections;
 using System.Net.Sockets;
 
 public class Connection : MonoBehaviour {
-	private string loc;
+
+	public static Connection conn;
 	// Use this for initialization
-	float lat;
-	float lon;
+
 	void Start () {
 		Debug.Log ("initConnection is called");
-		initConnection ();
-		lat = 0.213f;
-		lon = 321.3123f;
+//		initConnection ();
 	}
-	void initConnection(){
-		loc = lat.ToString() + "," + lon.ToString();
-		TcpClient socket = new TcpClient();
-		Debug.Log ("New TCP Client init");
-		socket.Connect("10.4.59.36",8092);
-		Debug.Log ("Socket connected");
-		NetworkStream network = socket.GetStream();
-		System.IO.StreamWriter streamWriter= new System.IO.StreamWriter(network); 
-		streamWriter.WriteLine(loc);
-		Debug.Log ("Chewtiya sent.");
-		streamWriter.Flush();   
-		Debug.Log ("Streamwriter flushed...");
+		
+	public static void initConnection(int ch){
+		string recd;
+		if (ch == 1) {
+					
+			TcpClient socket = new TcpClient ();
+			Debug.Log ("New TCP Client init");
+			socket.Connect ("10.4.59.36", 8096);
+			Debug.Log ("Socket connected");
+		} else if (ch == 2) {
+			TcpClient socket = new TcpClient ();
+			Debug.Log ("New TCP Client init");
+			socket.Connect ("10.4.59.36", 8096);
+			Debug.Log ("Socket connected");
+			NetworkStream network = socket.GetStream ();
+			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter (network); 
+			streamWriter.WriteLine ("Chewtiya");
+			Debug.Log ("Chewtiya sent.");
+			streamWriter.Flush ();   
+			Debug.Log ("Streamwriter flushed...");
+		} else if (ch == 3) {
+			TcpClient socket = new TcpClient ();
+			Debug.Log ("New TCP Client init");
+			socket.Connect ("10.4.59.36", 8095);
+			Debug.Log ("Socket connected");
+			NetworkStream network = socket.GetStream ();
+			System.IO.StreamReader streamReader = new System.IO.StreamReader (network);
+			recd = streamReader.ReadLine ();
+			Debug.Log (recd);
+			Debug.Log ("StreamReader read line");
+		} else if (ch == 4) {
+			TcpClient socket = new TcpClient ();
+			Debug.Log ("New TCP Client init");
+			socket.Connect ("10.4.59.36", 8095);
+			Debug.Log ("Socket connected");
+			NetworkStream network = socket.GetStream ();
+			network.Close ();
+		}
+			
 	}	
 
-
+	/*
+	 * 1. Initialize Connection
+	 * 2. WriteLine
+	 * 3. ReceiveLine
+	 * 4. Exit
+	 */
 
 
 	// Update is called once per frame
