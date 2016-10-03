@@ -84,6 +84,7 @@
      <Compile Include="Assets\Vuforia\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
+     <Compile Include="Assets\_Scripts\Connection.cs" />
      <Compile Include="Assets\_Scripts\HomeRemediesBehaviour.cs" />
      <Compile Include="Assets\_Scripts\SoundBehaviour.cs" />
      <Compile Include="Assets\_Scripts\SplashTransition.cs" />

@@ -10,7 +10,7 @@ public class HomeRemediesBehaviour : MonoBehaviour {
 	public Canvas AR_HRCanv;
 	// Use this for initialization
 	void Start () {
-		AR_HRCanv.isActiveAndEnabled (false);
+//		AR_HRCanv.isActiveAndEnabled (false);
 		HRbutton = this.GetComponent<Button> ();
 	}
 	
@@ -20,6 +20,6 @@ public class HomeRemediesBehaviour : MonoBehaviour {
 	}
 	
 	void getCanvas(){
-		AR_HRCanv.istransparent
+//		AR_HRCanv.istransparent
 	}
 }
