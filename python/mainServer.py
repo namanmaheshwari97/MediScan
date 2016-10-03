@@ -24,18 +24,23 @@ while True:
     recvString = c.recv(1024)
     parsedString = recvString.split(";")
     if parsedString[0] == "sos":
-        #CALL SOS FUNCTION
-        
-        c.close()
+        sm.parseCoordinates(parsedString[1])  
+        c.close()                               
         break
+    
     elif parsedString[0] == "home remedies":
-        #CALL HOME REMEDIES AND RETURN HR
+        toSendHomeRemedies = getHomeRemedies(parsedString[1])
+        c.send(toSendHomeRemedies)              
+    
     elif parsedString[0] == "check":
-        #CALL RECOMMENDER MODULE RETURN 1 OR 0
+        toSendCheck = re.parseString(parsedString[0]+";"+parsedString[1])
+        c.send(toSendCheck)
+    
     elif parsedString[0] == "our suggestions"
-        #CALL OUR SUGGESTIONS MODULE RETURN STRING OF 2 MEDICINES ; SEPARATED
+       toSendMedicines = oursug.suggest(parsedString[1])
+       c.send(toSendMedicines)
+    
     elif parsedString[0] == "exit"
-        #FINAL EXIT FUNCTION
         print "Exiting and closing connections"
         c.close()
         break
