@@ -11,6 +11,8 @@ public class Connection : MonoBehaviour {
 		Debug.Log ("initConnection is called");
 //		initConnection ();
 	}
+
+
 		
 	public static void initConnection(int ch, string str){
 		string recd;
@@ -18,12 +20,12 @@ public class Connection : MonoBehaviour {
 					
 			TcpClient socket = new TcpClient ();
 			Debug.Log ("New TCP Client init");
-			socket.Connect ("10.4.59.36", 8096);
+			socket.Connect ("10.4.59.36", 8104);
 			Debug.Log ("Socket connected");
 		} else if (ch == 2) {
 			TcpClient socket = new TcpClient ();
 			Debug.Log ("New TCP Client init");
-			socket.Connect ("10.4.59.36", 8101);
+			socket.Connect ("10.4.59.36", 8104);
 			Debug.Log ("Socket connected");
 			NetworkStream network = socket.GetStream ();
 			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter (network); 
@@ -34,7 +36,7 @@ public class Connection : MonoBehaviour {
 		} else if (ch == 3) {
 			TcpClient socket = new TcpClient ();
 			Debug.Log ("New TCP Client init");
-			socket.Connect ("10.4.59.36", 8095);
+			socket.Connect ("10.4.59.36", 8104);
 			Debug.Log ("Socket connected");
 			NetworkStream network = socket.GetStream ();
 			System.IO.StreamReader streamReader = new System.IO.StreamReader (network);
@@ -44,7 +46,7 @@ public class Connection : MonoBehaviour {
 		} else if (ch == 4) {
 			TcpClient socket = new TcpClient ();
 			Debug.Log ("New TCP Client init");
-			socket.Connect ("10.4.59.36", 8095);
+			socket.Connect ("10.4.59.36", 8104);
 			Debug.Log ("Socket connected");
 			NetworkStream network = socket.GetStream ();
 			network.Close ();

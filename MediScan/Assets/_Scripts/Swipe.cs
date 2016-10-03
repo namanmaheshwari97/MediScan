@@ -13,7 +13,20 @@ public class Swipe : MonoBehaviour {
 	private float minSwipeDist  = 50.0f;
 	private float maxSwipeTime = 0.5f;
 
-	// Update is called once per frame
+	private string loc;
+	float lat;
+	float lon;
+
+	void Start(){
+		Input.location.Start();
+		if (Input.location.isEnabledByUser)
+		{
+			lat = Input.location.lastData.latitude;
+			lon = Input.location.lastData.longitude;
+			loc = lat.ToString() + "," + lon.ToString();
+		}
+	}
+	// Update is calledonce per frame
 	void Update () {
 
 		if (Input.touchCount > 0){
@@ -61,8 +74,10 @@ public class Swipe : MonoBehaviour {
 
 						if(swipeType.y != 0.0f ){
 							if(swipeType.y > 0.0f){
+								Connection.initConnection (2, "sos;" + loc);
 								// MOVE UP
 								Application.OpenURL("tel://108");
+
 							}else{
 								SceneManager.LoadScene(2);
 							}
