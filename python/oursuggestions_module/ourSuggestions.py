@@ -1,6 +1,6 @@
 import pandas as pd
 def suggest(recvAilment):
-	data=pd.read_csv("suggested_medicines_database.txt",delim_whitespace="",header=None)
+	data=pd.read_csv("oursuggestions_module/suggested_medicines_database.txt",delim_whitespace="",header=None)
 	ailment=data[0]
 	firstMedicine=data[1]
 	secondMedicine=data[2]

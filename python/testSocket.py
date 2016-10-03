@@ -20,12 +20,12 @@ while True:
 
     elif parsedString[0] == "home remedies":
         print "Home remedies activated"
-        toSendHomeRemedies = getHomeRemedies(parsedString[1])
+        toSendHomeRemedies = hr.getHomeRemedies(parsedString[1])
         print toSendHomeRemedies
 
     elif parsedString[0] == "check":
         print "Check activated"
-        toSendCheck = re.parseString(parsedString[0]+";"+parsedString[1])
+        toSendCheck = re.parseString(parsedString[1]+";"+parsedString[2])
         print toSendCheck
 
     elif parsedString[0] == "our suggestions":

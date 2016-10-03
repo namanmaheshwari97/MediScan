@@ -29,11 +29,11 @@ while True:
         break
     
     elif parsedString[0] == "home remedies":
-        toSendHomeRemedies = getHomeRemedies(parsedString[1])
+        toSendHomeRemedies = hr.getHomeRemedies(parsedString[1])
         c.send(toSendHomeRemedies)              
     
     elif parsedString[0] == "check":
-        toSendCheck = re.parseString(parsedString[0]+";"+parsedString[1])
+        toSendCheck = re.parseString(parsedString[1]+";"+parsedString[2])
         c.send(toSendCheck)
     
     elif parsedString[0] == "our suggestions"
