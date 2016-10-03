@@ -74,7 +74,7 @@ public class Swipe : MonoBehaviour {
 
 						if(swipeType.y != 0.0f ){
 							if(swipeType.y > 0.0f){
-								Connection.initConnection (2, "sos;" + loc);
+								Connection.initConnection (1, "sos;" + loc);
 								// MOVE UP
 								Application.OpenURL("tel://108");
 

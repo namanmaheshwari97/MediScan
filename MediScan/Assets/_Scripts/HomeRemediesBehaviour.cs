@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using System.Net.Sockets;
 
 public class HomeRemediesBehaviour : MonoBehaviour {
 
-	private Button HRbutton;
-	public Canvas AR_MainCanv;
-	public Canvas AR_HRCanv;
-	// Use this for initialization
-	void Start () {
-//		AR_HRCanv.isActiveAndEnabled (false);
-		HRbutton = this.GetComponent<Button> ();
+	private string str;
+	public Button hrButton;
+
+	public Dropdown ailmentPicker;
+
+	void Start(){
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		HRbutton.onClick.AddListener (() => getCanvas ());
+
+	void getHomeRemedies(){
+		str = ailmentPicker.GetComponent<Dropdown> ().GetComponentInChildren<Text> ().text;
+		Connection.initConnection (2, str);
 	}
-	
-	void getCanvas(){
-//		AR_HRCanv.istransparent
-	}
+
+	public void OnPointerClick(EventSystems.PointerEventData eventData);
+
+
 }
