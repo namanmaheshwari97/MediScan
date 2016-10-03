@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{0415662A-98FA-7EC4-788B-26AC847D66E2}") = "MediScan", "Assembly-CSharp.csproj", "{A93E007E-875F-8A50-26D3-660A2D498755}"
+EndProject
+Project("{0415662A-98FA-7EC4-788B-26AC847D66E2}") = "MediScan", "Assembly-CSharp-Editor.csproj", "{E3627DBA-35F1-31E6-9A39-676AB8229866}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A93E007E-875F-8A50-26D3-660A2D498755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A93E007E-875F-8A50-26D3-660A2D498755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A93E007E-875F-8A50-26D3-660A2D498755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A93E007E-875F-8A50-26D3-660A2D498755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3627DBA-35F1-31E6-9A39-676AB8229866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3627DBA-35F1-31E6-9A39-676AB8229866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3627DBA-35F1-31E6-9A39-676AB8229866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3627DBA-35F1-31E6-9A39-676AB8229866}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
