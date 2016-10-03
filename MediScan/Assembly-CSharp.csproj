@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\SoundBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -85,6 +84,8 @@
      <Compile Include="Assets\Vuforia\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
+     <Compile Include="Assets\_Scripts\HomeRemediesBehaviour.cs" />
+     <Compile Include="Assets\_Scripts\SoundBehaviour.cs" />
      <Compile Include="Assets\_Scripts\SplashTransition.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\link.xml" />
