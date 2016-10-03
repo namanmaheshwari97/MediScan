@@ -1,4 +1,3 @@
-
 import sys
 import socket
 sys.path.insert(0,'sos_module/')
@@ -15,16 +14,18 @@ import recommendationEngine as re
 
 s = socket.socket()
 host = "10.4.59.36"
-port = 8081
+port = 8092
 s.bind((host,port))
 
 s.listen(5)
-s.settimeout(300.0)
-
+print "Listening"
 while True:
     c,addr = s.accept()
     print "Connected"
-    c.send("Got it bro")
+    print c.recv(1024)
+    print "Sent"
+    #c.send("Got it bro")
     c.close()
     break
+print "exiting"
 
