@@ -91,6 +91,7 @@
      <Compile Include="Assets\_Scripts\HomeRemediesBehaviour.cs" />
      <Compile Include="Assets\_Scripts\SoundBehaviour.cs" />
      <Compile Include="Assets\_Scripts\SplashTransition.cs" />
+     <Compile Include="Assets\_Scripts\Swipe.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
