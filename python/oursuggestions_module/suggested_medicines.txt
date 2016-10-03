@@ -1,0 +1,8 @@
+loose motions,lomotil,levbid
+sinusitus,sinex,privine
+nausea,parinom,benadryl
+strains or sprains,volini,paracetamol
+allergy,citrizine,clemastine
+cold and flu,tylenol,aleve
+headache,nalfon,paracetamol
+acid reflux,digene,pantoprazole
