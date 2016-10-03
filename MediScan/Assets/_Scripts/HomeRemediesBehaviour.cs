@@ -2,24 +2,23 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using System.Net.Sockets;
 
 public class HomeRemediesBehaviour : MonoBehaviour {
-
-	private string str;
-	public Button hrButton;
 
 	public Dropdown ailmentPicker;
 
 	void Start(){
+		ailmentPicker.onValueChanged.AddListener (delegate {
+			getHomeRemedies (ailmentPicker);
+		});
 	}
 
-	void getHomeRemedies(){
-		str = ailmentPicker.GetComponent<Dropdown> ().GetComponentInChildren<Text> ().text;
-		Connection.initConnection (2, str);
-	}
 
-	public void OnPointerClick(EventSystems.PointerEventData eventData);
+
+	private void getHomeRemedies(Dropdown aDropDown){
+		Debug.Log ("SELECTED " + aDropDown.value);
+		Connection.initConnection (2, aDropDown.value.ToString());
+	}
 
 
 }
