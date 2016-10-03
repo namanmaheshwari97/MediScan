@@ -14,18 +14,32 @@ import recommendationEngine as re
 
 s = socket.socket()
 host = "10.4.59.36"
-port = 8092
+port = 8101
 s.bind((host,port))
 
 s.listen(5)
 print "Listening"
 while True:
     c,addr = s.accept()
-    print "Connected"
-    print c.recv(1024)
-    print "Sent"
-    #c.send("Got it bro")
-    c.close()
-    break
-print "exiting"
+    recvString = c.recv(1024)
+    parsedString = recvString.split(";")
+    if parsedString[0] == "sos":
+        #CALL SOS FUNCTION
+        
+        c.close()
+        break
+    elif parsedString[0] == "home remedies":
+        #CALL HOME REMEDIES AND RETURN HR
+    elif parsedString[0] == "check":
+        #CALL RECOMMENDER MODULE RETURN 1 OR 0
+    elif parsedString[0] == "our suggestions"
+        #CALL OUR SUGGESTIONS MODULE RETURN STRING OF 2 MEDICINES ; SEPARATED
+    elif parsedString[0] == "exit"
+        #FINAL EXIT FUNCTION
+        print "Exiting and closing connections"
+        c.close()
+        break
+
+
+
 
