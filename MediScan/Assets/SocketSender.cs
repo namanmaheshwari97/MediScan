@@ -6,7 +6,7 @@ public class SocketSender : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Connection.initConnection (2);
+		Connection.initConnection (2,"tol");
 	}
 	
 	// Update is called once per frame

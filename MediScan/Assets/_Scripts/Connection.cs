@@ -12,7 +12,7 @@ public class Connection : MonoBehaviour {
 //		initConnection ();
 	}
 		
-	public static void initConnection(int ch){
+	public static void initConnection(int ch, string str){
 		string recd;
 		if (ch == 1) {
 					
@@ -23,11 +23,11 @@ public class Connection : MonoBehaviour {
 		} else if (ch == 2) {
 			TcpClient socket = new TcpClient ();
 			Debug.Log ("New TCP Client init");
-			socket.Connect ("10.4.59.36", 8096);
+			socket.Connect ("10.4.59.36", 8101);
 			Debug.Log ("Socket connected");
 			NetworkStream network = socket.GetStream ();
 			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter (network); 
-			streamWriter.WriteLine ("Chewtiya");
+			streamWriter.WriteLine (str);
 			Debug.Log ("Chewtiya sent.");
 			streamWriter.Flush ();   
 			Debug.Log ("Streamwriter flushed...");
