@@ -14,10 +14,26 @@ while True:
     parsedString = recvString.split(";")
 
     if parsedString[0] == "sos":
+        print "SOS Activated"
         sm.parseCoordinates(parsedString[1])
         break
+
     elif parsedString[0] == "home remedies":
+        print "Home remedies activated"
         toSendHomeRemedies = getHomeRemedies(parsedString[1])
         print toSendHomeRemedies
 
-    elif 
+    elif parsedString[0] == "check":
+        print "Check activated"
+        toSendCheck = re.parseString(parsedString[0]+";"+parsedString[1])
+        print toSendCheck
+
+    elif parsedString[0] == "our suggestions":
+        print "Oursuggestions activated"
+        toSendMedicines = oursug.suggest(parsedString[1])
+        print toSendMedicines
+
+
+    elif parsedString[0] == "exit":
+        print "Exiting"
+        break
