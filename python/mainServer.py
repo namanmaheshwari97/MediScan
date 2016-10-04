@@ -1,3 +1,4 @@
+
 import sys
 import socket
 sys.path.insert(0,'sos_module/')
@@ -12,12 +13,16 @@ import recommendationEngine as re
 
 
 
+
 s = socket.socket()
-host = "10.4.59.36"
-port = 8141
+host = "10.4.59.49"                         #CHANGE THIS IP ADDRESS TO THE PC'S IP ADDRESS
+port = 8151                                 #CHANGE THE PORT TO ANYONE AFTER 8080
 s.bind((host,port))
 s.listen(5)
 print "Listening"
+
+
+
 while True:
     print "Loop started"
     c,addr = s.accept()
@@ -26,7 +31,7 @@ while True:
     parsedString = recvString.split(";")
     if parsedString[0] == "sos":
         print parsedString[1]
-        sm.parseCoordinates(parsedString[1])  
+        sm.parseCoordinates(parsedString[1])                            
         c.close()                               
         break
     
@@ -42,6 +47,7 @@ while True:
         print parsedString[1]+" "+parsedString[2]
         toSendCheck = re.parseString(parsedString[1]+";"+parsedString[2])
         toSendCheck = toSendCheck + "\n"
+        print toSendCheck
         c.send(toSendCheck)
     
     elif parsedString[0] == "our suggestions":
