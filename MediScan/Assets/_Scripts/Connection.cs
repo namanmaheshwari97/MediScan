@@ -10,16 +10,17 @@ public class Connection : MonoBehaviour {
 	static System.IO.StreamReader streamReader;
 	static NetworkStream network;
 	public static string ailment;
-	public static int recCheck;
+	public static string recCheck;
 	public static string homeRemedies;
 	public static string suggestions;
+	public static string recd;
+	public static string recd2;
 	void Start () {
 		Debug.Log ("initConnection is called");
 	}
 
 	public static void initConnection(int ch, string str){
-		string recd;
-		string recd2;
+
 
 
 		if (ch == 1) {
@@ -58,7 +59,7 @@ public class Connection : MonoBehaviour {
 			streamWriter.WriteLine ("check;" + ailment + ";" + str);
 			streamWriter.Flush();
 			recd = streamReader.ReadLine ();
-			recCheck = System.Int32.Parse (recd);
+//			recCheck = System.Int32.Parse (recd);
 			Debug.Log (recCheck);
 			network.Close ();
 		} else if (ch == 4) {
@@ -66,6 +67,7 @@ public class Connection : MonoBehaviour {
 			streamWriter.WriteLine ("our suggestions;" + ailment);
 			streamWriter.Flush ();
 			suggestions = streamReader.ReadLine ();
+			network.Close ();
 
 		}
 			
@@ -81,7 +83,7 @@ public class Connection : MonoBehaviour {
 	public static void connectToSocket(){
 		TcpClient socket = new TcpClient ();
 		Debug.Log ("New TCP Client init");
-		socket.Connect ("10.4.59.49", 8153);				//Change IP Address and Port to that of the Server Computer
+		socket.Connect ("10.4.59.49", 8154);				//Change IP Address and Port to that of the Server Computer
 		network = socket.GetStream ();
  		streamWriter = new System.IO.StreamWriter (network); 
 		streamReader = new System.IO.StreamReader (network);
@@ -92,8 +94,8 @@ public class Connection : MonoBehaviour {
 		return homeRemedies;
 	}
 
-	public static int returnRecomCheck(){
-		return recCheck;
+	public static string returnRecomCheck(){
+		return recd;
 	}
 
 	public static string[] returnSuggestions(){

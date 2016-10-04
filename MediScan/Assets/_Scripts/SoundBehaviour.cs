@@ -30,9 +30,9 @@ public class SoundBehaviour : MonoBehaviour {
 		} else {
 			pref = 0;
 			buttonIMG.texture = soundOn;
-			recer = Connection.returnRecomCheck ();
+//			recer = Connection.returnRecomCheck ();
 			if (recer == 1) {
-				AudioBehaviour.playrec ();
+// 				AudioBehaviour.playrec ();
 			}
 
 		}
