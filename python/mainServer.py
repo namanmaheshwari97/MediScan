@@ -14,7 +14,7 @@ import recommendationEngine as re
 
 s = socket.socket()
 host = "10.4.59.36"
-port = 8137
+port = 8141
 s.bind((host,port))
 s.listen(5)
 print "Listening"
@@ -38,6 +38,7 @@ while True:
         c.send(toSendHomeRemedies)
     
     elif parsedString[0] == "check":
+        print parsedString[1]+" "+parsedString[2]
         toSendCheck = re.parseString(parsedString[1]+";"+parsedString[2])
         toSendCheck = toSendCheck + "\n"
         c.send(toSendCheck)

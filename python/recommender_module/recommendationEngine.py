@@ -1,6 +1,7 @@
 import pandas as pd
 
 def parseString(recvString):
+    recvString = recvString[:-1]
     parsedString = recvString.split(";")
     recvAilment = parsedString[0]
     recvMedicine = parsedString[1]
