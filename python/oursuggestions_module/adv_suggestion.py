@@ -1,6 +1,6 @@
 import pandas as pd
 def advanceSuggestion(recvAilment):
-    data = pd.read_csv("adv_sug.txt",delim_whitespace="",header=None)
+    data = pd.read_csv("oursuggestions_module/adv_sug.txt",delim_whitespace="",header=None)
     ailment = data[0]
     firstMed = data[1]
     secMed = data[2]

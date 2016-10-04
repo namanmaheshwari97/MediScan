@@ -7,7 +7,7 @@ sys.path.insert(0,'recommender_module/')
 
 import sosmessage as sm
 import homeRemedies as hr
-import ourSuggestions as oursug
+import adv_suggestion as advsug
 import recommendationEngine as re
 
 
@@ -25,6 +25,7 @@ while True:
     recvString = c.recv(1024)
     parsedString = recvString.split(";")
     if parsedString[0] == "sos":
+        print parsedString[1]
         sm.parseCoordinates(parsedString[1])  
         c.close()                               
         break
@@ -44,7 +45,11 @@ while True:
         c.send(toSendCheck)
     
     elif parsedString[0] == "our suggestions":
-       toSendMedicines = oursug.suggest(parsedString[1])
+       ailment = parsedString[1]
+       ailment = ailment[:-1]
+       print ailment
+       toSendMedicines = oursug.advanceSuggestion(ailment)
+       toSendMedicines = toSendMedicines + "\n"
        c.send(toSendMedicines)
     
     elif parsedString[0] == "exit":

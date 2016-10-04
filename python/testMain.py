@@ -6,7 +6,7 @@ sys.path.insert(0,'recommender_module/')
 
 import sosmessage as sm
 import homeRemedies as hr
-import ourSuggestions as oursug
+import adv_suggestion as advsug
 import recommendationEngine as re
 
 while True:
@@ -30,7 +30,7 @@ while True:
 
     elif parsedString[0] == "our suggestions":
         print "Oursuggestions activated"
-        toSendMedicines = oursug.suggest(parsedString[1])
+        toSendMedicines = advsug.advanceSuggestion(parsedString[1])
         print toSendMedicines
 
 
