@@ -16,7 +16,7 @@ import recommendationEngine as re
 
 s = socket.socket()
 host = "10.4.59.49"                         #CHANGE THIS IP ADDRESS TO THE PC'S IP ADDRESS
-port = 8151                                 #CHANGE THE PORT TO ANYONE AFTER 8080
+port = 8154                                 #CHANGE THE PORT TO ANYONE AFTER 8080
 s.bind((host,port))
 s.listen(5)
 print "Listening"
