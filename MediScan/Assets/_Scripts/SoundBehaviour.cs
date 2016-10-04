@@ -6,14 +6,15 @@ public class SoundBehaviour : MonoBehaviour {
 
 	RawImage buttonIMG;
 	Button soundBtn;
-	private int pref;
+	public static int pref;
 	public Texture soundOn;
 	public Texture soundOff;
+	private int recer;
 
 	// Use this for initialization
 	void Start () {
 		pref = 1;
-		buttonIMG = this.GetComponent<RawImage> ();
+		buttonIMG = this.GetComponent<	RawImage> ();
 		soundBtn = this.GetComponent<Button> ();
 	}
 	
@@ -29,6 +30,11 @@ public class SoundBehaviour : MonoBehaviour {
 		} else {
 			pref = 0;
 			buttonIMG.texture = soundOn;
+			recer = Connection.returnRecomCheck ();
+			if (recer == 1) {
+				AudioBehaviour.playrec ();
+			}
+
 		}
 	}
 }

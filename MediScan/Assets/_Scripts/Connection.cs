@@ -12,6 +12,7 @@ public class Connection : MonoBehaviour {
 	public static string ailment;
 	public static int recCheck;
 	public static string homeRemedies;
+	public static string suggestions;
 	void Start () {
 		Debug.Log ("initConnection is called");
 	}
@@ -19,6 +20,7 @@ public class Connection : MonoBehaviour {
 	public static void initConnection(int ch, string str){
 		string recd;
 		string recd2;
+
 
 		if (ch == 1) {
 			Connection.connectToSocket ();
@@ -53,19 +55,18 @@ public class Connection : MonoBehaviour {
 			network.Close ();
 		} else if (ch == 3) {
 			Connection.connectToSocket ();
-			streamWriter.WriteLine ("check;" + "allergy" + ";" + str);
+			streamWriter.WriteLine ("check;" + ailment + ";" + str);
 			streamWriter.Flush();
 			recd = streamReader.ReadLine ();
 			recCheck = System.Int32.Parse (recd);
 			Debug.Log (recCheck);
 			network.Close ();
 		} else if (ch == 4) {
-//			TcpClient socket = new TcpClient ();
-			Debug.Log ("New TCP Client init");
-//			socket.Connect ("10.4.59.36", 8104);
-//			Debug.Log ("Socket connected");
-//			NetworkStream network = socket.GetStream ();
-//			network.Close ();
+			Connection.connectToSocket ();
+			streamWriter.WriteLine ("our suggestions;" + ailment);
+			streamWriter.Flush ();
+			suggestions = streamReader.ReadLine ();
+
 		}
 			
 	}
@@ -80,7 +81,7 @@ public class Connection : MonoBehaviour {
 	public static void connectToSocket(){
 		TcpClient socket = new TcpClient ();
 		Debug.Log ("New TCP Client init");
-		socket.Connect ("10.4.59.49", 8151);				//Change IP Address and Port to that of the Server Computer
+		socket.Connect ("10.4.59.49", 8153);				//Change IP Address and Port to that of the Server Computer
 		network = socket.GetStream ();
  		streamWriter = new System.IO.StreamWriter (network); 
 		streamReader = new System.IO.StreamReader (network);
@@ -93,6 +94,12 @@ public class Connection : MonoBehaviour {
 
 	public static int returnRecomCheck(){
 		return recCheck;
+	}
+
+	public static string[] returnSuggestions(){
+		string[] s = suggestions.Split (';');
+		Debug.Log (s);
+		return s;
 	}
 
 	void OnApplicationQuit() {

@@ -45,8 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AudioBehaviour.cs" />
      <Compile Include="Assets\ChangeScene.cs" />
      <Compile Include="Assets\ColourChangeBehaviour.cs" />
+     <Compile Include="Assets\FetchSuggestions.cs" />
      <Compile Include="Assets\FetchTrackableName.cs" />
      <Compile Include="Assets\MedicineTrackingBehaviour.cs" />
      <Compile Include="Assets\OpenHRBehaviour.cs" />
@@ -90,13 +92,13 @@
      <Compile Include="Assets\Vuforia\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
-     <Compile Include="Assets\_Scripts\ChangeRecommendationSign.cs" />
      <Compile Include="Assets\_Scripts\Connection.cs" />
      <Compile Include="Assets\_Scripts\GPSsocketsender.cs" />
      <Compile Include="Assets\_Scripts\HomeRemediesBehaviour.cs" />
      <Compile Include="Assets\_Scripts\SoundBehaviour.cs" />
      <Compile Include="Assets\_Scripts\SplashTransition.cs" />
      <Compile Include="Assets\_Scripts\Swipe.cs" />
+     <Compile Include="Assets\opensuggestionsscene.cs" />
      <Compile Include="Assets\populateHomeRem.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\link.xml" />
