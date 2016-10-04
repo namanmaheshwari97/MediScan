@@ -10,26 +10,31 @@ public class Connection : MonoBehaviour {
 	static System.IO.StreamReader streamReader;
 	static NetworkStream network;
 	public static string ailment;
+	public static float recCheck;
 	void Start () {
 		Debug.Log ("initConnection is called");
 	}
 
 	public static void initConnection(int ch, string str){
 		string recd;
+		string recd2;
 		if (ch == 1) {
 			Connection.connectToSocket ();
 			streamWriter.WriteLine (str);
 			streamWriter.Flush ();
+			network.Close ();
 		} else if (ch == 2) {
 			Debug.Log ("2 IS SELECTED ");
 			Connection.connectToSocket ();
-			Debug.Log ("coNNECTED");
+			Debug.Log ("Connected");
 			if (str == "1")
 				ailment = "loose motions";
 			else if (str == "2")
 				ailment = "sinusitus";
+			else if (str == "3")
+				ailment = "nausea";
 			else if (str == "4")
-				ailment = "strains";
+				ailment = "strains or sprains";
 			else if (str == "5")
 				ailment = "allergy";
 			else if (str == "6")
@@ -39,20 +44,20 @@ public class Connection : MonoBehaviour {
 			else if (str == "8")
 				ailment = "acid reflux";
 			recd = concatHomeRem (ailment);
+			Debug.Log (recd);
 			streamWriter.WriteLine (recd);
 			streamWriter.Flush ();   
-			recd = streamReader.ReadLine ();
-			Debug.Log (recd);
+			recd2 = streamReader.ReadLine ();
+			network.Close ();
+			Debug.Log (recd2);
 		} else if (ch == 3) {
-//			TcpClient socket = new TcpClient ();
-//			Debug.Log ("New TCP Client init");
-//			socket.Connect ("10.4.59.36", 8106);
-//			Debug.Log ("Socket connected");
-//			NetworkStream network = socket.GetStream ();
-//
-//			recd = streamReader.ReadLine ();
-//			Debug.Log (recd);
-			Debug.Log ("StreamReader read line");
+			Connection.connectToSocket ();
+			streamWriter.WriteLine ("check;" + "allergy" + ";" + str);
+			streamWriter.Flush();
+			recd = streamReader.ReadLine ();
+			recCheck = System.Int32.Parse (recd);
+			Debug.Log (recCheck);
+			network.Close ();
 		} else if (ch == 4) {
 //			TcpClient socket = new TcpClient ();
 			Debug.Log ("New TCP Client init");
@@ -74,7 +79,7 @@ public class Connection : MonoBehaviour {
 	public static void connectToSocket(){
 		TcpClient socket = new TcpClient ();
 		Debug.Log ("New TCP Client init");
-		socket.Connect ("10.4.59.36", 8114);
+		socket.Connect ("10.4.59.36", 8141);
 		network = socket.GetStream ();
  		streamWriter = new System.IO.StreamWriter (network); 
 		streamReader = new System.IO.StreamReader (network);

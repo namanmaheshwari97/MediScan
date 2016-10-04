@@ -52,7 +52,7 @@ namespace Vuforia
                 newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
             {
                 OnTrackingFound();
-				Connection.initConnection (2, mTrackableBehaviour.TrackableName);
+				Connection.initConnection (3, mTrackableBehaviour.TrackableName);
             }
             else
             {
