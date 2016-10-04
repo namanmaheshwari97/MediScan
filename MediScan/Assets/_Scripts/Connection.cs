@@ -80,7 +80,7 @@ public class Connection : MonoBehaviour {
 	public static void connectToSocket(){
 		TcpClient socket = new TcpClient ();
 		Debug.Log ("New TCP Client init");
-		socket.Connect ("10.4.59.49", 8149);				//Change IP Address and Port to that of the Server Computer
+		socket.Connect ("10.4.59.49", 8151);				//Change IP Address and Port to that of the Server Computer
 		network = socket.GetStream ();
  		streamWriter = new System.IO.StreamWriter (network); 
 		streamReader = new System.IO.StreamReader (network);
