@@ -1,4 +1,5 @@
-# TeamI.O-Healthcare-
+# MediScan by Team I.O
+##Created in 36 hours at SRM Hackathon
 
 ##MediScan
 The MediScan folder consists of the Unity3D part of the application.
